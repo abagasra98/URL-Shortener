@@ -1,0 +1,27 @@
+{
+  "name": "url-shortener",
+  "version": "1.0.0",
+  "description": "URL Shortener Microservice project for FCC's backend certification",
+  "engines": {
+    "node": "6.5.0"
+  },
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "4.14.0",
+    "mongodb": "3.2.11",
+    "valid-url": "1.0.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abagasra98/URL-Shortener.git"
+  },
+  "author": "abagasra98",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abagasra98/URL-Shortener/issues"
+  },
+  "homepage": "https://github.com/abagasra98/URL-Shortener#readme"
+}
