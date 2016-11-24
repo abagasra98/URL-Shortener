@@ -48,7 +48,7 @@ app.get('/shorten/*', function(req, res) {
           var tempDoc = {_id: queryHash, url: query};
           collection.insert(tempDoc) // handle error and ensure insertion?
         }
-        res.json({original_url: query, short_url: ('localhost:' + app.get('port') + '/' + queryHash)});
+        res.json({original_url: query, short_url: ('https://sleepy-harbor-10918.herokuapp.com/' + queryHash)});
         db.close();
       })
     })
