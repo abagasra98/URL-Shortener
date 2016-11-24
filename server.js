@@ -4,7 +4,8 @@ var validUrl = require('valid-url');
 const path = require('path');
 
 var app = express();
-const url = 'mongodb://localhost:27017/test' // database name in url?
+const url = process.env.MONGOLAB_URI;
+//const url = 'mongodb://localhost:27017/test' // database name in url?
 app.set('port', (process.env.PORT || 8080));
 
 app.get('/', function(req, res) {
@@ -17,7 +18,7 @@ app.get('/:id', function(req, res) {
   if (!isNaN(query)) {
     mongo.connect(url, function(err, db){
       if (err) throw err;
-      var collection = db.collection('urlCodes');
+      var collection = db.collection('hashCodes');
       collection.find({_id: +query}).limit(1).count(true, function(err, count) {
           if (err) throw err;
           if (count == 1) {
@@ -40,7 +41,7 @@ app.get('/shorten/*', function(req, res) {
     var queryHash = query.hashCode();
     mongo.connect(url, function(err, db) {
       if (err) throw err;
-      var collection = db.collection('urlCodes');
+      var collection = db.collection('hashCodes');
       collection.find({_id: queryHash}).limit(1).count(true, function(err, count) {
         if (err) throw err;
         if (count == 0) {
